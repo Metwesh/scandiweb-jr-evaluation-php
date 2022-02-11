@@ -24,12 +24,12 @@ if (isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && i
 
     if ($result) {
         header("HTTP/1.1 200 OK");
-        header("Location: http://localhost:3000/");
+        header("Location: https://metwesh.github.io/scandiweb-product-page/");
         exit();
     } else {
         header("HTTP/1.1 406 Error inserting product");
     }
 } else {
     header("HTTP/1.1 499 Required parameters missing");
-    echo "Required parameters missing";
+    echo 'Required parameters missing';
 }

@@ -17,13 +17,13 @@ if (isset($_POST['sku'])) {
 
     if ($result) {
         header("HTTP/1.1 200 OK");
-        header("Location: http://localhost:3000/");
+        header("Location: https://metwesh.github.io/scandiweb-product-page/add-product");
         exit();
     } else {
         header("HTTP/1.1 406 Error deleting product");
     }
 } else {
     header("HTTP/1.1 499 Required parameters missing");
-    echo "Please select one or more of the checkboxes. Reirecting...";
-    header("refresh:3;url=http://localhost:3000/");
+    echo 'Please select one or more of the checkboxes. Reirecting...';
+    header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/");
 }

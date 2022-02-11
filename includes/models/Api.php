@@ -32,10 +32,10 @@ class Api
             } else {
                 return false;
             }
-        } catch (Throwable) {
-            echo "Product SKU already exists in database. Reirecting...";
+        } catch (\Throwable) {
+            echo 'Product SKU already exists in database. Reirecting...';
             header("HTTP/1.1 406 Error inserting product");
-            header("refresh:3;url=http://localhost:3000/add-product");
+            header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/add-product");
         }
     }
 
@@ -50,10 +50,10 @@ class Api
             } else {
                 return false;
             }
-        } catch (Throwable) {
-            echo "Error deleting product from database. Reirecting...";
+        } catch (\Throwable) {
+            echo 'Error deleting product from database. Reirecting...';
             header("HTTP/1.1 406 Error deleting product from database");
-            header("refresh:3;url=http://localhost:3000/add-product");
+            header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/add-product");
         }
     }
 
