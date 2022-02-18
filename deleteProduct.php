@@ -24,6 +24,6 @@ if (isset($_POST['sku'])) {
     }
 } else {
     header("HTTP/1.1 499 Required parameters missing");
-    echo 'Please select one or more of the checkboxes. Reirecting...';
     header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/");
+    echo 'Please select one or more of the checkboxes. Reirecting...';
 }
