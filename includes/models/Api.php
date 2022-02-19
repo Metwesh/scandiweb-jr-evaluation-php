@@ -34,7 +34,7 @@ class Api
             }
         } catch (Throwable $e) {
             header("HTTP/1.1 406 Error inserting product");
-            header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/add-product");
+            header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/add-product");
             echo 'Product SKU already exists in database. Reirecting...';
             exit;
         }
@@ -53,7 +53,7 @@ class Api
             }
         } catch (Throwable $e) {
             header("HTTP/1.1 406 Error deleting product from database");
-            header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/add-product");
+            header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/add-product");
             echo 'Error deleting product from database. Reirecting...';
             exit;
         }

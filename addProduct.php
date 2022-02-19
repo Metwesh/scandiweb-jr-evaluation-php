@@ -23,7 +23,7 @@ if (isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && i
 
     if ($result) {
         header("HTTP/1.1 200 OK");
-        header("Location: https://metwesh.github.io/scandiweb-product-page/");
+        header("Location: https://scandiweb-product-page.herokuapp.com/");
         exit();
     } else {
         header("HTTP/1.1 406 Error inserting product");

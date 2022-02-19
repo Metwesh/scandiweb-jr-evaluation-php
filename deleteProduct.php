@@ -16,13 +16,13 @@ if (isset($_POST['sku'])) {
 
     if ($result) {
         header("HTTP/1.1 200 OK");
-        header("Location: https://metwesh.github.io/scandiweb-product-page/add-product");
+        header("Location: https://scandiweb-product-page.herokuapp.com/add-product");
         exit();
     } else {
         header("HTTP/1.1 406 Error deleting product");
     }
 } else {
     header("HTTP/1.1 422 Required parameters missing");
-    header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/");
+    header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/");
     echo 'Please select one or more of the checkboxes. Reirecting...';
 }
