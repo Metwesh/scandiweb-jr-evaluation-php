@@ -23,7 +23,7 @@ if (isset($_POST['sku'])) {
         header("HTTP/1.1 406 Error deleting product");
     }
 } else {
-    header("HTTP/1.1 499 Required parameters missing");
+    header("HTTP/1.1 422 Required parameters missing");
     header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/");
     echo 'Please select one or more of the checkboxes. Reirecting...';
 }

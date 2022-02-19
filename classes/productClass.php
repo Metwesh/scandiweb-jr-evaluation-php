@@ -2,40 +2,40 @@
 
 abstract class Product
 {
-    private $prodSku;
-    private $prodName;
-    private $prodPrice;
-    private $prodType;
-    private $prodDesc;
+    private $productSku;
+    private $productName;
+    private $productPrice;
+    private $productType;
+    private $productDesc;
 
-    public function __construct($prodSku, $prodName, $prodPrice, $prodType, $prodDesc)
+    public function __construct($productSku, $productName, $productPrice, $productType, $productDesc)
     {
-        $this->prodSku = $prodSku;
-        $this->prodName = $prodName;
-        $this->prodPrice = $prodPrice;
-        $this->prodType = $prodType;
-        $this->prodDesc = $prodDesc;
+        $this->prodSku = $productSku;
+        $this->prodName = $productName;
+        $this->prodPrice = $productPrice;
+        $this->prodType = $productType;
+        $this->prodDesc = $productDesc;
     }
 
     public function getSKU()
     {
-        return $this->prodSku;
+        return $this->productSku;
     }
     public function getName()
     {
-        return $this->prodName;
+        return $this->productName;
     }
     public function getPrice()
     {
-        return $this->prodPrice;
+        return $this->productPrice;
     }
     public function getType()
     {
-        return $this->prodType;
+        return $this->productType;
     }
     public function getDesc()
     {
-        return $this->prodDesc;
+        return $this->productDesc;
     }
 
     public function formatSKU($inputType, $inputSKU)

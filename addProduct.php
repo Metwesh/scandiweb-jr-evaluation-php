@@ -30,6 +30,6 @@ if (isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && i
         header("HTTP/1.1 406 Error inserting product");
     }
 } else {
-    header("HTTP/1.1 499 Required parameters missing");
+    header("HTTP/1.1 422 Required parameters missing");
     echo 'Required parameters missing';
 }
