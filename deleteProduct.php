@@ -4,7 +4,6 @@ require_once('includes/initialize.php');
 
 header('Content-Type: application/json; charset=UTF-8');
 
-
 $response = array();
 
 if (isset($_POST['sku'])) {

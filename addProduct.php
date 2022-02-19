@@ -2,10 +2,9 @@
 
 require_once('includes/initialize.php');
 
-require_once('productClass.php');
+require_once('classes/productClass.php');
 
 header('Content-Type: application/json; charset=UTF-8');
-
 
 
 $response = array();
