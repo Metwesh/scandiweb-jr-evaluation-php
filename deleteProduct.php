@@ -16,7 +16,7 @@ if (isset($_POST['sku'])) {
 
     if ($result) {
         header("HTTP/1.1 200 OK");
-        header("Location: https://scandiweb-product-page.herokuapp.com/add-product");
+        header("Location: https://scandiweb-product-page.herokuapp.com/");
         exit();
     } else {
         header("HTTP/1.1 406 Error deleting product");

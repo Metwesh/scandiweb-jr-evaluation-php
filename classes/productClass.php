@@ -10,11 +10,11 @@ abstract class Product
 
     public function __construct($productSku, $productName, $productPrice, $productType, $productDesc)
     {
-        $this->prodSku = $productSku;
-        $this->prodName = $productName;
-        $this->prodPrice = $productPrice;
-        $this->prodType = $productType;
-        $this->prodDesc = $productDesc;
+        $this->productSku = $productSku;
+        $this->productName = $productName;
+        $this->productPrice = $productPrice;
+        $this->productType = $productType;
+        $this->productDesc = $productDesc;
     }
 
     public function getSKU()

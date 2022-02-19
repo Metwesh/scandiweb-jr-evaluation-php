@@ -53,7 +53,7 @@ class Api
             }
         } catch (Throwable $e) {
             header("HTTP/1.1 406 Error deleting product from database");
-            header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/add-product");
+            header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/");
             echo 'Error deleting product from database. Reirecting...';
             exit;
         }

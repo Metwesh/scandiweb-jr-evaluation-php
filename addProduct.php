@@ -30,5 +30,6 @@ if (isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && i
     }
 } else {
     header("HTTP/1.1 422 Required parameters missing");
+    header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/add-product");
     echo 'Required parameters missing';
 }
