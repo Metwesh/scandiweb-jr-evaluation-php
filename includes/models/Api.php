@@ -39,23 +39,59 @@ class Api
             exit;
         }
     }
+    // public function deleteProduct($product_sku)
+    // {
+    //     try {
+    //         $this->db->query("DELETE FROM products WHERE product_sku = :sku");
+    //         $this->db->bind(":sku", $product_sku);
 
-    public function deleteProducts(PDO $pdoHandle, array $products_sku)
+    //         if ($this->db->execute()) {
+    //             return true;
+    //         } else {
+    //             return false;
+    //         }
+    //     } catch (Throwable $e) {
+    //         header("HTTP/1.1 406 Error deleting product from database");
+    //         header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/");
+    //         echo 'Error deleting product from database. Reirecting...';
+    //         exit;
+    //     }
+    // }
+
+    public function deleteProduct($product_sku)
     {
         try {
-            // put the right amount of placeholders in the query
-            $query = "DELETE FROM products WHERE product_sku IN (" .
-                trim(str_repeat(",?", count($products_sku)), ",") . ")";
-            $statement = $pdoHandle->prepare($query);
-            return $statement->execute($products_sku);
+            $prepared_sku = trim(str_repeat(",?", count($product_sku)), ",") . ")";
+            $this->db->query("DELETE FROM products WHERE product_sku IN (" . $prepared_sku);
+            $this->db->bind($product_sku, $prepared_sku);
+
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (Throwable $e) {
             header("HTTP/1.1 406 Error deleting product from database");
-            header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/add-product");
-            echo 'Error deleting products from database. Redirecting...';
+            header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/");
+            echo 'Error deleting product from database. Reirecting...';
             exit;
         }
     }
-
+    // public function deleteProducts(array $products_sku)
+    // {
+    //     try {
+    //         // put the right amount of placeholders in the query
+    //         $query = "DELETE FROM products WHERE product_sku IN (" .
+    //             trim(str_repeat(",?", count($products_sku)), ",") . ")";
+    //         $this->db->query($query);
+    //         return $this->db->execute($products_sku);
+    //     } catch (Throwable $e) {
+    //         echo 'Error deleting product from database. Reirecting...';
+    //         header("HTTP/1.1 406 Error deleting product from database");
+    //         header("refresh:3;url=https://metwesh.github.io/scandiweb-product-page/add-product");
+    //         exit;
+    //     }
+    // }
     public function getAllProducts()
     {
         $query = "SELECT * FROM products";
