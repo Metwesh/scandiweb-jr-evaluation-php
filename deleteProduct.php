@@ -18,7 +18,7 @@ if (!isset($_POST['sku'])) {
 
 $sku = implode(',', $_POST['sku']);
 
-$result = $api->deleteProduct($sku);
+$result = $api->deleteProduct("(" . $sku . ")");
 
 echo $sku;
 
