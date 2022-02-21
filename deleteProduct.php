@@ -17,6 +17,7 @@ if (!isset($_POST['sku'])) {
 
 
 $sku = $_POST['sku'];
+
 $result = $api->deleteProduct($sku);
 
 // foreach ($sku as $deletables) {
