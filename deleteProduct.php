@@ -30,4 +30,4 @@ if (!$result) {
 }
 
 header("HTTP/1.1 200 OK");
-header("Location: https://scandiweb-product-page.herokuapp.com/");
+// header("Location: https://scandiweb-product-page.herokuapp.com/");
