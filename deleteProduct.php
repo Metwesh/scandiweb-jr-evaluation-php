@@ -13,7 +13,7 @@ if (!isset($_POST['sku'])) {
     exit();
 }
 
-$sku = trim(str_repeat(",?", count($_POST['sku'])), ",") . ")";
+$sku = "(" . trim(str_repeat(",?", count($_POST['sku'])), ",") . ")";
 
 $result = $api->deleteProduct($sku);
 
