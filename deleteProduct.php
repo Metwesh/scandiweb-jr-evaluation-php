@@ -20,6 +20,8 @@ $sku = implode(',', $_POST['sku']);
 
 $result = $api->deleteProduct($sku);
 
+echo $result;
+
 // foreach ($sku as $deletables) {
 //     $result = $api->deleteProduct($deletables);
 // }
