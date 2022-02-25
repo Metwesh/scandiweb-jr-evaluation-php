@@ -45,8 +45,6 @@ class Api
         try {
             $this->db->query("DELETE FROM products WHERE product_sku IN ($product_sku)");
 
-            $this->db->execute($product_sku);
-
             if ($this->db->execute()) {
                 return true;
             } else {
