@@ -16,8 +16,8 @@ if (!isset($_POST['sku'])) {
 // $sku = trim(str_repeat(",?", count($_POST['sku'])), ",");
 
 
-// $sku = implode(',', $_POST['sku']);
-$sku = str_repeat('?,', count($_POST['sku']) - 1) . '?';
+$sku = implode(',', $_POST['sku']);
+
 echo $sku;
 $result = $api->deleteProduct($sku);
 
