@@ -47,6 +47,7 @@ class Api
             foreach ($product_sku as $sku) {
                 return $this->db->quote($sku);
             }
+            echo $product_sku;
             $this->db->bind(":sku", $product_sku);
 
 
