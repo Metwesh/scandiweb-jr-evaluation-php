@@ -13,14 +13,14 @@ if (!isset($_POST['sku'])) {
     exit();
 }
 
-// $sku = "(" . trim(str_repeat(",?", count($_POST['sku'])), ",") . ")";
+// $sku = trim(str_repeat(",?", count($_POST['sku'])), ",");
 
 
-$sku = implode(',', $_POST['sku']);
+// $sku = implode(',', $_POST['sku']);
 
-$result = $api->deleteProduct($sku);
+$result = $api->deleteProduct($_POST['sku']);
 
-echo $sku;
+echo $_POST['sku'];
 
 // foreach ($sku as $deletables) {
 //     $result = $api->deleteProduct($deletables);
