@@ -44,7 +44,9 @@ class Api
     {
         try {
             $this->db->query("DELETE FROM products WHERE product_sku IN (:sku)");
-            $this->db->bind(":sku", $product_sku);
+            foreach ($product_sku as $sku) {
+                $this->db->bind(":sku", $sku);
+            }
 
             if ($this->db->execute()) {
                 return true;
@@ -54,7 +56,7 @@ class Api
         } catch (Throwable $e) {
             header("HTTP/1.1 406 Error deleting product from database");
             // header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/");
-            echo 'Error deleting product from database. Reirecting...';
+            // echo 'Error deleting product from database. Reirecting...';
             echo $e;
             exit;
         }
