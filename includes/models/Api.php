@@ -40,15 +40,15 @@ class Api
         }
     }
 
-    public function deleteProduct($product_sku)
+    public function deleteProduct($post, $product_sku)
     {
         try {
-            $this->db->query("DELETE FROM products WHERE product_sku IN (:sku)");
+            $this->db->query("DELETE FROM products WHERE product_sku IN (" . $product_sku . ")");
 
             // $this->db->bind(":sku", $product_sku);
             // 
-            foreach ($product_sku as $k => $sku)
-                $this->db->bind(($k + 1), $sku);
+            foreach ($product_sku as $k => $post)
+                $this->db->bind(($k + 1), $post);
             // 
             if ($this->db->execute()) {
                 return true;
