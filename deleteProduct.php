@@ -15,7 +15,10 @@ if (!isset($_POST['sku'])) {
 
 // $sku = trim(str_repeat(",?", count($_POST['sku'])), ",");
 
-echo $_POST['sku'];
+// echo $_POST['sku'];
+foreach ($_POST['sku'] as $result) {
+    echo $result, '<br>';
+}
 
 $sku = "'" . join("','", $_POST['sku']) . "'";
 
