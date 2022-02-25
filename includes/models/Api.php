@@ -40,7 +40,7 @@ class Api
         }
     }
 
-    public function deleteProduct($post, $product_sku)
+    public function deleteProduct($product_sku, $post)
     {
         try {
             $this->db->query("DELETE FROM products WHERE product_sku IN (" . $product_sku . ")");
