@@ -13,18 +13,9 @@ if (!isset($_POST['sku'])) {
     exit();
 }
 
-// $sku = trim(str_repeat(",?", count($_POST['sku'])), ",");
-
-// echo $_POST['sku'];
-
 $sku = "'" . join("','", $_POST['sku']) . "'";
 
-echo $sku;
 $result = $api->deleteProduct($sku);
-
-// foreach ($sku as $deletables) {
-//     $result = $api->deleteProduct($deletables);
-// }
 
 if (!$result) {
     header("HTTP/1.1 406 Error deleting product");
@@ -32,4 +23,4 @@ if (!$result) {
 }
 
 header("HTTP/1.1 200 OK");
-// header("Location: https://scandiweb-product-page.herokuapp.com/");
+header("Location: https://scandiweb-product-page.herokuapp.com/");
