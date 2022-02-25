@@ -32,6 +32,12 @@ class Database
         $this->stmt = $this->dbh->prepare($sql);
     }
 
+    public function quote($param)
+    {
+        return $this->stmt->quote($param);
+    }
+
+
     public function bind($param, $value, $type = null)
     {
         if (is_null($type)) {
