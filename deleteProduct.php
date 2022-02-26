@@ -11,8 +11,7 @@ Validator::checkEmptySKU($_POST['sku']);
 // $preFormatSKU = $_POST['sku'];
 
 try {
-    $sku = $product->formatDeleteSKU($_POST['sku']);
-    // $sku = "'" . join("','", $_POST['sku']) . "'";
+    $sku = Product::formatDeleteSKU($_POST['sku']);
     $result = $api->deleteProduct($sku);
 } catch (Throwable $e) {
     echo $e;
