@@ -59,7 +59,7 @@ abstract class Product implements Formatter
 
     public function formatDeleteSKU($sku)
     {
-        return $sku = "'" . join("','", $sku) . "'";
+        return "'" . join("','", $sku) . "'";
     }
 
     public function formatSKU($inputType, $inputSKU)
@@ -79,8 +79,7 @@ class Furniture extends Product
 {
     public function formatDescription($inputDesc)
     {
-        $implodedInput = implode('x', $inputDesc);
-        return "Dimensions: " . $implodedInput;
+        return "Dimensions: " . implode('x', $inputDesc);
     }
 }
 class Book extends Product
