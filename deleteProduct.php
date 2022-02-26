@@ -8,10 +8,9 @@ $response = [];
 
 Validator::checkEmptySKU($_POST['sku']);
 
-$sku = $product->formatDeleteSKU($_POST['sku']);
-echo $sku;
+// $sku = $product->formatDeleteSKU($_POST['sku']);
 
-// $sku = "'" . join("','", $_POST['sku']) . "'";
+$sku = "'" . join("','", $_POST['sku']) . "'";
 
 $result = $api->deleteProduct($sku);
 
