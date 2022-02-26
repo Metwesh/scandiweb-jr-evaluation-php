@@ -59,14 +59,13 @@ abstract class Product implements Formatter
 
     public function formatDeleteSKU($sku)
     {
-        return "'" . join("','", $sku) . "'";
+        return ("'" . join("','", $sku) . "'");
     }
 
     public function formatSKU($inputType, $inputSKU)
     {
         return strtoupper(substr($inputType, 0, 4)) . str_pad($inputSKU, 4, "0", STR_PAD_LEFT);
     }
-
 }
 
 class DVD extends Product

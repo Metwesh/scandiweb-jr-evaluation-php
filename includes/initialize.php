@@ -20,4 +20,3 @@ require_once('models/Api.php');
 
 require_once('classes/productClass.php');
 require_once('classes/Validator.php');
-

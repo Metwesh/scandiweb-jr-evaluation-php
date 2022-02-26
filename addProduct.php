@@ -2,7 +2,6 @@
 
 require_once('includes/initialize.php');
 
-
 header('Content-Type: application/json; charset=UTF-8');
 
 
