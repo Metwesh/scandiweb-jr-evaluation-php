@@ -1,6 +1,11 @@
 <?php
 
-abstract class Product
+interface Formatter
+{
+    public function formatDescription($inputDesc);
+}
+
+abstract class Product implements Formatter
 {
     private $productSku;
     private $productName;
@@ -8,7 +13,7 @@ abstract class Product
     private $productType;
     private $productDesc;
 
-    
+
     public function setSKU($productSku)
     {
         $this->productSku = $productSku;
@@ -58,7 +63,6 @@ abstract class Product
         return strtoupper(substr($inputType, 0, 4)) . str_pad($inputSKU, 4, "0", STR_PAD_LEFT);
     }
 
-    abstract protected function formatDescription($inputDesc);
 }
 
 class DVD extends Product
