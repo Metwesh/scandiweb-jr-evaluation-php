@@ -1,7 +1,6 @@
 <?php
 
 require_once('includes/initialize.php');
-require_once('classes/Validator.php');
 
 
 header('Content-Type: application/json; charset=UTF-8');
