@@ -11,7 +11,7 @@ class Validator
 
     public static function checkEmptyResult($result)
     {
-        if (count($result) == 0) {
+        if (count($result) === 0) {
             header("HTTP/1.1 406 No products available");
             exit();
         }
