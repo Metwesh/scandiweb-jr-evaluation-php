@@ -8,14 +8,28 @@ abstract class Product
     private $productType;
     private $productDesc;
 
-    public function __construct($productSku, $productName, $productPrice, $productType, $productDesc)
+    
+    public function setSKU($productSku)
     {
         $this->productSku = $productSku;
+    }
+    public function setName($productName)
+    {
         $this->productName = $productName;
+    }
+    public function setPrice($productPrice)
+    {
         $this->productPrice = $productPrice;
+    }
+    public function setType($productType)
+    {
         $this->productType = $productType;
+    }
+    public function setDesc($productDesc)
+    {
         $this->productDesc = $productDesc;
     }
+
 
     public function getSKU()
     {
@@ -37,6 +51,7 @@ abstract class Product
     {
         return $this->productDesc;
     }
+
 
     public function formatSKU($inputType, $inputSKU)
     {
