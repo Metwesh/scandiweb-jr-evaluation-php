@@ -57,6 +57,10 @@ abstract class Product implements Formatter
         return $this->productDesc;
     }
 
+    public function formatDeleteSKU($sku)
+    {
+        return "'" . join("','", $sku) . "'";
+    }
 
     public function formatSKU($inputType, $inputSKU)
     {
