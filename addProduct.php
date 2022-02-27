@@ -16,6 +16,8 @@ $inputPrice = trim($_POST['price']);
 $inputType = $_POST['type'];
 $inputDesc = Product::trimData($_POST['description']);
 
+echo $inputPrice. '\n' .$inputDesc;
+
 Validator::validateData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
 
 $errors = Validator::getErrors();
