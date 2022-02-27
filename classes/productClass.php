@@ -65,22 +65,15 @@ abstract class Product implements Formatter
 
     public static function trimData($data)
     {
-        switch ($data) {
-            case is_array($data):
-                foreach ($data as $key) {
-                    return trim(floatval($key));
-                }
-                unset($key);
-                break;
+        return trim($data);
+    }
 
-            case is_numeric($data):
-                return trim(floatval($data));
-                break;
-
-            default:
-                return trim($data);
-                break;
+    public static function trimArray($data)
+    {
+        foreach ($data as $key) {
+            return trim(floatval($key));
         }
+        unset($key);
     }
 
 
