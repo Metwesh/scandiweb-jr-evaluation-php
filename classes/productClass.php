@@ -68,6 +68,11 @@ abstract class Product implements Formatter
         return trim($data);
     }
 
+    public static function trimFloats($data)
+    {
+        return trim(floatval($data));
+    }
+
     public static function trimArray($data)
     {
         foreach ($data as $key) {
