@@ -61,7 +61,7 @@ class Validator
 
     private function validatePrice($price)
     {
-        if (!is_int($price) | !is_float($price)) {
+        if (!is_int($price) || !is_float($price)) {
             self::$errors += ['Price' => 'Price can only contain numbers'];
         }
     }
@@ -70,14 +70,11 @@ class Validator
     {
         switch ($description) {
             case is_array($description):
-                foreach ($description as $key) {
-                    if (!is_int($key) | !is_float($key)) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
-                }
-                unset($key);
+                if (!array_filter($description, 'is_int') || !array_filter($description, 'is_float')) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
                 break;
 
             default:
-                if (!is_int($description) | !is_float($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
+                if (!is_int($description) || !is_float($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
                 break;
         }
     }
