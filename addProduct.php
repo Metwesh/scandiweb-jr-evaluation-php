@@ -10,9 +10,9 @@ $response = [];
 
 Validator::checkEmptyData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['type'], $_POST['description']);
 
-$inputSKU = trim($_POST['sku']);
-$inputName = trim($_POST['name']);
-$inputPrice = trim($_POST['price']);
+$inputSKU = Product::trimData($_POST['sku']);
+$inputName = Product::trimData($_POST['name']);
+$inputPrice = Product::trimData($_POST['price']);
 $inputType = $_POST['type'];
 $inputDesc = Product::trimData($_POST['description']);
 
