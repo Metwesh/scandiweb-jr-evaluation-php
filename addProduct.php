@@ -8,13 +8,13 @@ header('Content-Type: application/json; charset=UTF-8');
 $response = [];
 
 
-$inputSKU = trim($_POST['sku'], " ");
-$inputName = trim($_POST['name'], " ");
-$inputPrice = trim($_POST['price'], " ");
+Validator::checkEmptyData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
+
+$inputSKU = trim($_POST['sku']);
+$inputName = trim($_POST['name']);
+$inputPrice = trim($_POST['price']);
 $inputType = $_POST['type'];
 $inputDesc = Product::trimData($_POST['description']);
-
-Validator::checkEmptyData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
 
 Validator::validateData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
 
