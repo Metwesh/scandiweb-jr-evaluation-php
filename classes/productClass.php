@@ -16,23 +16,23 @@ abstract class Product implements Formatter
 
     public function setSKU($productSku)
     {
-        $this->productSku = trim($productSku);
+        $this->productSku = $productSku;
     }
     public function setName($productName)
     {
-        $this->productName = trim($productName);
+        $this->productName = $productName;
     }
     public function setPrice($productPrice)
     {
-        $this->productPrice = trim($productPrice);
+        $this->productPrice = $productPrice;
     }
     public function setType($productType)
     {
-        $this->productType = trim($productType);
+        $this->productType = $productType;
     }
     public function setDesc($productDesc)
     {
-        $this->productDesc = trim($productDesc);
+        $this->productDesc = $productDesc;
     }
 
 
@@ -57,10 +57,28 @@ abstract class Product implements Formatter
         return $this->productDesc;
     }
 
+
     public static function formatDeleteSKU($inputSKU)
     {
         return "'" . join("','", $inputSKU) . "'";
     }
+
+    public static function trimData($data)
+    {
+        switch ($data) {
+            case is_array($data):
+                foreach ($data as $key) {
+                    return trim($key);
+                }
+                unset($key);
+                break;
+
+            default:
+                return trim($data);
+                break;
+        }
+    }
+
 
     public function formatSKU($inputType, $inputSKU)
     {
@@ -80,7 +98,7 @@ class Furniture extends Product
     public function formatDescription($inputDesc)
     {
         foreach ($inputDesc as $input) {
-            return trim($input);
+            return $input;
         }
         return "Dimensions: " . implode('x', $inputDesc);
     }

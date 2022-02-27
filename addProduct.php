@@ -7,12 +7,18 @@ header('Content-Type: application/json; charset=UTF-8');
 
 $response = [];
 
-Validator::checkEmptyData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['type'], $_POST['description']);
 
-Validator::validateData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['type'], $_POST['description']);
+$inputSKU = trim($_POST['sku']);
+$inputName = trim($_POST['name']);
+$inputPrice = trim($_POST['price']);
+$inputType = $_POST['type'];
+$inputDesc = Product::trimData($_POST['description']);
+
+Validator::checkEmptyData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
+
+Validator::validateData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
 
 $errors = Validator::getErrors();
-
 
 if ($errors) {
     echo "\n    Errors: \n\n\n";
@@ -23,15 +29,14 @@ if ($errors) {
     exit();
 }
 
-$class = $_POST['type'];
-$product = new $class();
 
+$product = new $inputType();
 
-$product->setSKU($_POST['sku']);
-$product->setName($_POST['name']);
-$product->setPrice($_POST['price']);
-$product->setType($_POST['type']);
-$product->setDesc($_POST['description']);
+$product->setSKU($inputSKU);
+$product->setName($inputName);
+$product->setPrice($inputPrice);
+$product->setType($inputType);
+$product->setDesc($inputDesc);
 
 
 $sku = $product->formatSKU($product->getType(), $product->getSKU());
