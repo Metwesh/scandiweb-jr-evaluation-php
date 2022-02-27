@@ -54,7 +54,7 @@ class Validator
 
     private function validateName($name)
     {
-        if (!preg_match('/^\pL+$/u', $name)) {
+        if (!ctype_alnum($name)) {
             self::$errors += ['Name' => 'Name can only contain letters'];
         }
     }
