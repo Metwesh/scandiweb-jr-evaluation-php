@@ -42,7 +42,9 @@ class Validator
         self::validateSKU($sku);
         self::validateName($name);
         self::validatePrice($price);
-        self::validateDescription($description);
+        is_array($description) ?
+            self::validateArrayDescription($description) :
+            self::validateDescription($description);
     }
 
     private function validateSKU($sku)
@@ -70,22 +72,19 @@ class Validator
 
     private function validateDescription($description)
     {
-        switch ($description) {
-            case is_array($description):
-                foreach ($description as $key) {
-                    if (!is_numeric($key)) {
-                        self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
-                        continue;
-                    }
-                    Product::turnToFloat($key);
-                }
-                unset($key);
-                break;
+        if (!is_numeric($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
+    }
 
-            default:
-                if (!is_numeric($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
+    private function validateArrayDescription($description)
+    {
+        foreach ($description as $key) {
+            if (!is_numeric($key)) {
+                self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
                 break;
+            }
+            Product::turnToFloat($key);
         }
+        unset($key);
     }
 }
 
