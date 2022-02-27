@@ -77,7 +77,7 @@ class Validator
                 break;
 
             default:
-                if (!is_float($description) || !is_int($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
+                if (!is_numeric($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
                 break;
         }
     }
