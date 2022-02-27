@@ -68,7 +68,7 @@ abstract class Product implements Formatter
         switch ($data) {
             case is_array($data):
                 foreach ($data as $key) {
-                    return trim(floatval($key));
+                    return trim($key);
                 }
                 unset($key);
                 break;
