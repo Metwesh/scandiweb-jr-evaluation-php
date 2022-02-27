@@ -54,14 +54,14 @@ class Validator
 
     private function validateName($name)
     {
-        if (!preg_match('^[a-zA-Z]+$', $name)) {
+        if (!preg_match('/^\pL+$/u', $name)) {
             self::$errors += ['name' => 'Name can only contain letters'];
         }
     }
 
     private function validatePrice($price)
     {
-        if (!is_numeric($price)) {
+        if (!is_int($price) | !is_float($price)) {
             self::$errors += ['price' => 'SKU can only contain numbers'];
         }
     }
@@ -71,13 +71,13 @@ class Validator
         switch ($description) {
             case is_array($description):
                 foreach ($description as $key) {
-                    if (!is_numeric($key)) self::$errors += ['dimensions' => 'dimensions can only contain numbers'];
+                    if (!is_int($key) | !is_float($key)) self::$errors += ['dimensions' => 'dimensions can only contain numbers'];
                 }
                 unset($key);
                 break;
 
             default:
-                if (!is_numeric($description)) self::$errors += ['description' => 'description can only contain numbers'];
+                if (!is_int($description) | !is_float($description)) self::$errors += ['description' => 'description can only contain numbers'];
                 break;
         }
     }
