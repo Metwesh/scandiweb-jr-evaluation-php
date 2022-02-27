@@ -8,14 +8,9 @@ $response = [];
 
 Validator::checkEmptySKU($_POST['sku']);
 
-// $preFormatSKU = $_POST['sku'];
+$sku = Product::formatDeleteSKU($_POST['sku']);
 
-try {
-    $sku = Product::formatDeleteSKU($_POST['sku']);
-    $result = $api->deleteProduct($sku);
-} catch (Throwable $e) {
-    echo $e;
-}
+$result = $api->deleteProduct($sku);
 
 if (!$result) {
     header("HTTP/1.1 406 Error deleting product");

@@ -47,22 +47,39 @@ class Validator
 
     private function validateSKU($sku)
     {
-        // 
+        if (!ctype_alnum($sku)) {
+            self::$errors += ['sku' => 'SKU can only contain letters & numbers'];
+        }
     }
 
     private function validateName($name)
     {
-        // 
+        if (!preg_match('^[a-zA-Z]+$', $name)) {
+            self::$errors += ['name' => 'Name can only contain letters'];
+        }
     }
 
     private function validatePrice($price)
     {
-        // 
+        if (!is_numeric($price)) {
+            self::$errors += ['price' => 'SKU can only contain numbers'];
+        }
     }
 
     private function validateDescription($description)
     {
-        // 
+        switch ($description) {
+            case is_array($description):
+                foreach ($description as $key) {
+                    if (!is_numeric($key)) self::$errors += ['dimensions' => 'dimensions can only contain numbers'];
+                }
+                unset($key);
+                break;
+
+            default:
+                if (!is_numeric($description)) self::$errors += ['description' => 'description can only contain numbers'];
+                break;
+        }
     }
 }
 

@@ -13,8 +13,12 @@ Validator::validateData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['
 
 $errors = Validator::getErrors();
 
+
 if ($errors) {
-    echo $errors;
+    foreach ($errors as $key => $value) {
+        echo "{$key} => {$value} <br> ";
+    }
+    unset($key, $value);
     exit();
 }
 
