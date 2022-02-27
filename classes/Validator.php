@@ -54,7 +54,7 @@ class Validator
 
     private function validateName($name)
     {
-        
+
         if (!ctype_alnum($name)) {
             self::$errors += ['Name' => 'Name can only contain letters & numbers'];
         }
@@ -65,6 +65,7 @@ class Validator
         if (!is_numeric($price)) {
             self::$errors += ['Price' => 'Price can only contain numbers'];
         }
+        Product::turnToFloat($price);
     }
 
     private function validateDescription($description)
@@ -72,7 +73,11 @@ class Validator
         switch ($description) {
             case is_array($description):
                 foreach ($description as $key) {
-                    if (!is_numeric($key)) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
+                    if (!is_numeric($key)) {
+                        self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
+                        continue;
+                    }
+                    Product::turnToFloat($key);
                 }
                 unset($key);
                 break;

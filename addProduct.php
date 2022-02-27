@@ -11,9 +11,9 @@ Validator::checkEmptyData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST
 
 $inputSKU = Product::trimData($_POST['sku']);
 $inputName = Product::trimData($_POST['name']);
-$inputPrice = Product::trimFloats($_POST['price']);
+$inputPrice = Product::trimData($_POST['price']);
 $inputType = $_POST['type'];
-$inputDesc = is_array($_POST['description']) ? Product::trimArray($_POST['description']) : Product::trimFloats($_POST['description']);
+$inputDesc = is_array($_POST['description']) ? Product::trimArray($_POST['description']) : Product::trimData($_POST['description']);
 
 Validator::validateData($inputSKU, $inputName, $inputPrice, $inputDesc);
 
