@@ -61,7 +61,7 @@ class Validator
 
     private function validatePrice($price)
     {
-        if (!is_float($price) || !is_int($price)) {
+        if (!is_numeric($price)) {
             self::$errors += ['Price' => 'Price can only contain numbers'];
         }
     }
