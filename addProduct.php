@@ -6,7 +6,7 @@ header('Content-Type: application/json; charset=UTF-8');
 
 
 $response = [];
-
+echo $_POST['description'];
 
 Validator::checkEmptyData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['type'], $_POST['description']);
 
@@ -21,7 +21,7 @@ Validator::validateData($inputSKU, $inputName, $inputPrice, $inputType, $inputDe
 $errors = Validator::getErrors();
 
 if ($errors) {
-    echo "\n    Errors: \n\n\n";
+    echo "\n    Error(s): \n\n\n";
     foreach ($errors as $key => $value) {
         echo "      {$key} => {$value} \n\n";
     }
