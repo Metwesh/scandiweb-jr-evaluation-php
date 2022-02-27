@@ -48,21 +48,21 @@ class Validator
     private function validateSKU($sku)
     {
         if (!ctype_alnum($sku)) {
-            self::$errors += ['sku' => 'SKU can only contain letters & numbers'];
+            self::$errors += ['SKU' => 'SKU can only contain letters & numbers'];
         }
     }
 
     private function validateName($name)
     {
         if (!preg_match('/^\pL+$/u', $name)) {
-            self::$errors += ['name' => 'Name can only contain letters'];
+            self::$errors += ['Name' => 'Name can only contain letters'];
         }
     }
 
     private function validatePrice($price)
     {
         if (!is_int($price) | !is_float($price)) {
-            self::$errors += ['price' => 'SKU can only contain numbers'];
+            self::$errors += ['Price' => 'Price can only contain numbers'];
         }
     }
 
@@ -71,13 +71,13 @@ class Validator
         switch ($description) {
             case is_array($description):
                 foreach ($description as $key) {
-                    if (!is_int($key) | !is_float($key)) self::$errors += ['dimensions' => 'dimensions can only contain numbers'];
+                    if (!is_int($key) | !is_float($key)) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
                 }
                 unset($key);
                 break;
 
             default:
-                if (!is_int($description) | !is_float($description)) self::$errors += ['description' => 'description can only contain numbers'];
+                if (!is_int($description) | !is_float($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
                 break;
         }
     }
