@@ -77,6 +77,7 @@ abstract class Product implements Formatter
     {
         foreach ($data as $key) {
             $key = trim(floatval($key));
+            echo $key;
         }
         unset($key);
     }
