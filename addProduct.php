@@ -8,7 +8,7 @@ header('Content-Type: application/json; charset=UTF-8');
 $response = [];
 
 
-Validator::checkEmptyData($inputSKU, $inputName, $inputPrice, $inputType, $inputDesc);
+Validator::checkEmptyData($_POST['sku'], $_POST['name'], $_POST['price'], $_POST['type'], $_POST['description']);
 
 $inputSKU = trim($_POST['sku']);
 $inputName = trim($_POST['name']);
