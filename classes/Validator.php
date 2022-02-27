@@ -70,7 +70,10 @@ class Validator
     {
         switch ($description) {
             case is_array($description):
-                if (!array_filter($description, 'is_int') || !array_filter($description, 'is_float')) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
+                foreach ($description as $key) {
+                    if (!is_int($key) || !is_float($key)) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
+                }
+                unset($key);
                 break;
 
             default:
