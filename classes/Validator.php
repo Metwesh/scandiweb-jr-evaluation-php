@@ -78,6 +78,7 @@ class Validator
 
         //     default:
         if (!is_numeric($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
+        echo $description;
         //         break;
         // }
     }
