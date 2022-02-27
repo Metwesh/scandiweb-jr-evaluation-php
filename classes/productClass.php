@@ -75,7 +75,7 @@ abstract class Product implements Formatter
 
     public static function trimArray($data)
     {
-        return array_map('trim', $data);
+        $data = array_map('trim', $data);
     }
 
 
