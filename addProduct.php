@@ -17,7 +17,7 @@ $errors = Validator::getErrors();
 if ($errors) {
     echo "Errors: \n";
     foreach ($errors as $key => $value) {
-        echo "{$key} => {$value} \n";
+        echo " {$key} => {$value} \n";
     }
     unset($key, $value);
     exit();
