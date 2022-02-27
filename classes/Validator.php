@@ -68,19 +68,18 @@ class Validator
 
     private function validateDescription($description)
     {
-        // switch ($description) {
-        //     case is_array($description):
-        //         foreach ($description as $key) {
-        //             if (!is_numeric($key)) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
-        //         }
-        //         unset($key);
-        //         break;
+        switch ($description) {
+            case is_array($description):
+                foreach ($description as $key) {
+                    if (!is_numeric($key)) self::$errors += ['Dimensions' => 'Dimensions can only contain numbers'];
+                }
+                unset($key);
+                break;
 
-        //     default:
-        if (!is_numeric($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
-        echo $description;
-        //         break;
-        // }
+            default:
+                if (!is_numeric($description)) self::$errors += ['Description' => 'Description can only contain numbers'];
+                break;
+        }
     }
 }
 
