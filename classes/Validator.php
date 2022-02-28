@@ -70,7 +70,7 @@ class Validator
 
     private function validateName($name)
     {
-        if (!ctype_alnum($name)) {
+        if (!preg_match('/^[a-zA-Z\s\&]+$/', $name)) {
             self::$errors += ['Name' => 'Name can only contain letters & numbers'];
         }
     }
