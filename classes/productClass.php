@@ -77,9 +77,8 @@ abstract class Product implements Formatter
     {
         if (!is_array($data))
             return trim($data);
-        foreach ($data as $key) {
-            return trim($key);
-        }
+        $trimmed_array = array_map('trim', $data);
+        return $data = $trimmed_array;
     }
 
 
