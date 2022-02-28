@@ -56,7 +56,7 @@ class Validator
 
     private function validateName($name)
     {
-
+        echo $name;
         if (!ctype_alnum($name)) {
             self::$errors += ['Name' => 'Name can only contain letters & numbers'];
         }
