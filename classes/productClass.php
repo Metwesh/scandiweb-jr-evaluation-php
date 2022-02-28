@@ -99,9 +99,6 @@ class Furniture extends Product
 {
     public function formatDescription($inputDesc)
     {
-        foreach ($inputDesc as $input) {
-            return $input;
-        }
         return "Dimensions: " . implode('x', $inputDesc);
     }
 }
