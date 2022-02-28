@@ -29,10 +29,24 @@ class Validator
 
     public static function checkEmptyData($sku, $name, $price, $type, $description)
     {
+        if (!isset($sku)) {
+            echo '\n    SKU parameter missing';
+        }
+        if (!isset($name)) {
+            echo '\n    Name parameter missing';
+        }
+        if (!isset($price)) {
+            echo '\n    Price parameter missing';
+        }
+        if (!isset($type)) {
+            echo '\n    Type parameter missing';
+        }
+        if (!isset($description)) {
+            echo '\n    Description parameter(s) missing';
+        }
         if (!isset($sku) | !isset($name) | !isset($price) | !isset($type) | !isset($description)) {
             header("HTTP/1.1 422 Required parameters missing");
             header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/add-product");
-            echo 'Required parameters missing';
             exit();
         }
     }
@@ -56,7 +70,6 @@ class Validator
 
     private function validateName($name)
     {
-        echo $name;
         if (!ctype_alnum($name)) {
             self::$errors += ['Name' => 'Name can only contain letters & numbers'];
         }
