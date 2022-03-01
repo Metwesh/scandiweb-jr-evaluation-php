@@ -80,7 +80,7 @@ abstract class Validator
         if (!is_numeric($price)) {
             self::$errors += ['Price' => 'Price can only contain numbers'];
         }
-        if ($price < 0) {
+        if ($price <= 0) {
             self::$errors += ['Price' => 'Price can only be a positive number'];
         }
         Product::turnToFloat($price);
