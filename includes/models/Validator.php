@@ -30,19 +30,19 @@ abstract class Validator
     public static function checkEmptyData($sku, $name, $price, $type, $description)
     {
         if (!isset($sku)) {
-            echo "\n    SKU parameter missing";
+            echo "\n    SKU parameter missing\n";
         }
         if (!isset($name)) {
-            echo "\n    Name parameter missing";
+            echo "\n    Name parameter missing\n";
         }
         if (!isset($price)) {
-            echo "\n    Price parameter missing";
+            echo "\n    Price parameter missing\n";
         }
         if (!isset($type)) {
-            echo "\n    Type parameter missing";
+            echo "\n    Type parameter missing\n";
         }
         if (!isset($description)) {
-            echo "\n    Description parameter(s) missing";
+            echo "\n    Description parameter(s) missing\n";
         }
         if (!isset($sku) | !isset($name) | !isset($price) | !isset($type) | !isset($description)) {
             header("HTTP/1.1 422 Required parameters missing");
