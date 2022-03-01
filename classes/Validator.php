@@ -1,6 +1,6 @@
 <?php
 
-class Validator
+abstract class Validator
 {
     private static $errors = [];
 

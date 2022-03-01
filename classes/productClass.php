@@ -65,21 +65,15 @@ abstract class Product implements Formatter
 
     public static function trimData($data)
     {
-        return trim($data);
+        if (!is_array($data))
+            return trim($data);
+        return array_map('trim', $data);
     }
 
     public static function turnToFloat($data)
     {
         return floatval($data);
     }
-
-    public static function trimArray($data)
-    {
-        if (!is_array($data))
-            return trim($data);
-        return array_map('trim', $data);
-    }
-
 
     public function formatSKU($inputType, $inputSKU)
     {
