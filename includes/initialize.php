@@ -18,5 +18,5 @@ require_once('config.php');
 require_once('models/Database.php');
 require_once('models/Api.php');
 
-require_once('models/productClass.php');
+require_once('models/Product.php');
 require_once('models/Validator.php');
