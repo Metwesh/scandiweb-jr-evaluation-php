@@ -103,5 +103,3 @@ class Validator
         unset($key);
     }
 }
-
-$validator = new Validator;
