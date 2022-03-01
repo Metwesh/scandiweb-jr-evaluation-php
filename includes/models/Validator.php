@@ -47,6 +47,7 @@ abstract class Validator
         if (!isset($sku) | !isset($name) | !isset($price) | !isset($type) | !isset($description)) {
             header("HTTP/1.1 422 Required parameters missing");
             header("refresh:3;url=https://scandiweb-product-page.herokuapp.com/add-product");
+            echo "\n\n    Redirecting ...\n";
             exit();
         }
     }
